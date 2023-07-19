@@ -2,7 +2,7 @@
  * @licstart The following is the entire license notice for the
  * Javascript code in this page
  *
- * Copyright 2021 Mozilla Foundation
+ * Copyright 2017 Mozilla Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,19 +19,9 @@
  * @licend The above is the entire license notice for the
  * Javascript code in this page
  */
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "WorkerMessageHandler", {
-  enumerable: true,
-  get: function () {
-    return _worker.WorkerMessageHandler;
-  }
-});
-
-var _worker = require("./core/worker.js");
-
-const pdfjsVersion = '2.9.359';
-const pdfjsBuild = 'e667c8cbc';
+var pdfjsVersion = '2.0.385';
+var pdfjsBuild = '99060e24';
+var pdfjsCoreWorker = require('./core/worker.js');
+exports.WorkerMessageHandler = pdfjsCoreWorker.WorkerMessageHandler;

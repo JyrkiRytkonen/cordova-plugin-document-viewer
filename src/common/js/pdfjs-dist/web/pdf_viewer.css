@@ -21,72 +21,69 @@
   bottom: 0;
   overflow: hidden;
   opacity: 0.2;
-  line-height: 1;
+  line-height: 1.0;
 }
 
-.textLayer span,
-.textLayer br {
+.textLayer > div {
   color: transparent;
   position: absolute;
   white-space: pre;
   cursor: text;
+  -webkit-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
   transform-origin: 0% 0%;
 }
 
 .textLayer .highlight {
-  position: relative;
   margin: -1px;
   padding: 1px;
-  background-color: rgba(180, 0, 170, 1);
+
+  background-color: rgb(180, 0, 170);
   border-radius: 4px;
 }
 
 .textLayer .highlight.begin {
-  border-radius: 4px 0 0 4px;
+  border-radius: 4px 0px 0px 4px;
 }
 
 .textLayer .highlight.end {
-  border-radius: 0 4px 4px 0;
+  border-radius: 0px 4px 4px 0px;
 }
 
 .textLayer .highlight.middle {
-  border-radius: 0;
+  border-radius: 0px;
 }
 
 .textLayer .highlight.selected {
-  background-color: rgba(0, 100, 0, 1);
+  background-color: rgb(0, 100, 0);
 }
 
-.textLayer ::-moz-selection {
-  background: rgba(0, 0, 255, 1);
-}
-
-.textLayer ::selection {
-  background: rgba(0, 0, 255, 1);
-}
+.textLayer ::selection { background: rgb(0,0,255); }
+.textLayer ::-moz-selection { background: rgb(0,0,255); }
 
 .textLayer .endOfContent {
   display: block;
   position: absolute;
-  left: 0;
+  left: 0px;
   top: 100%;
-  right: 0;
-  bottom: 0;
+  right: 0px;
+  bottom: 0px;
   z-index: -1;
   cursor: default;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
 }
 
 .textLayer .endOfContent.active {
-  top: 0;
+  top: 0px;
 }
 
 
 .annotationLayer section {
   position: absolute;
-  text-align: initial;
 }
 
 .annotationLayer .linkAnnotation > a,
@@ -102,8 +99,8 @@
 .annotationLayer .linkAnnotation > a:hover,
 .annotationLayer .buttonWidgetAnnotation.pushButton > a:hover {
   opacity: 0.2;
-  background: rgba(255, 255, 0, 1);
-  box-shadow: 0 2px 10px rgba(255, 255, 0, 1);
+  background: #ff0;
+  box-shadow: 0px 2px 10px #ff0;
 }
 
 .annotationLayer .textAnnotation img {
@@ -156,7 +153,7 @@
 .annotationLayer .choiceWidgetAnnotation select:hover,
 .annotationLayer .buttonWidgetAnnotation.checkBox input:hover,
 .annotationLayer .buttonWidgetAnnotation.radioButton input:hover {
-  border: 1px solid rgba(0, 0, 0, 1);
+  border: 1px solid #000;
 }
 
 .annotationLayer .textWidgetAnnotation input:focus,
@@ -169,8 +166,8 @@
 .annotationLayer .buttonWidgetAnnotation.checkBox input:checked:before,
 .annotationLayer .buttonWidgetAnnotation.checkBox input:checked:after,
 .annotationLayer .buttonWidgetAnnotation.radioButton input:checked:before {
-  background-color: rgba(0, 0, 0, 1);
-  content: "";
+  background-color: #000;
+  content: '';
   display: block;
   position: absolute;
 }
@@ -217,8 +214,9 @@
 .annotationLayer .buttonWidgetAnnotation.checkBox input,
 .annotationLayer .buttonWidgetAnnotation.radioButton input {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
   padding: 0;
 }
 
@@ -231,323 +229,40 @@
   position: absolute;
   z-index: 200;
   max-width: 20em;
-  background-color: rgba(255, 255, 153, 1);
-  box-shadow: 0 2px 5px rgba(136, 136, 136, 1);
+  background-color: #FFFF99;
+  box-shadow: 0px 2px 5px #333;
   border-radius: 2px;
-  padding: 6px;
+  padding: 0.6em;
   margin-left: 5px;
   cursor: pointer;
   font: message-box;
-  font-size: 9px;
-  white-space: normal;
   word-wrap: break-word;
 }
 
-.annotationLayer .popup > * {
-  font-size: 9px;
-}
-
 .annotationLayer .popup h1 {
-  display: inline-block;
-}
-
-.annotationLayer .popup span {
-  display: inline-block;
-  margin-left: 5px;
+  font-size: 1em;
+  border-bottom: 1px solid #000000;
+  margin: 0;
+  padding-bottom: 0.2em;
 }
 
 .annotationLayer .popup p {
-  border-top: 1px solid rgba(51, 51, 51, 1);
-  margin-top: 2px;
-  padding-top: 2px;
+  margin: 0;
+  padding-top: 0.2em;
 }
 
 .annotationLayer .highlightAnnotation,
 .annotationLayer .underlineAnnotation,
 .annotationLayer .squigglyAnnotation,
 .annotationLayer .strikeoutAnnotation,
-.annotationLayer .freeTextAnnotation,
 .annotationLayer .lineAnnotation svg line,
 .annotationLayer .squareAnnotation svg rect,
 .annotationLayer .circleAnnotation svg ellipse,
 .annotationLayer .polylineAnnotation svg polyline,
 .annotationLayer .polygonAnnotation svg polygon,
-.annotationLayer .caretAnnotation,
-.annotationLayer .inkAnnotation svg polyline,
 .annotationLayer .stampAnnotation,
 .annotationLayer .fileAttachmentAnnotation {
   cursor: pointer;
-}
-
-
-.xfaLayer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 200;
-  transform-origin: 0 0;
-}
-
-.xfaLayer * {
-  color: inherit;
-  font: inherit;
-  font-style: inherit;
-  font-weight: inherit;
-  font-kerning: inherit;
-  letter-spacing: inherit;
-  text-align: inherit;
-  text-decoration: inherit;
-  vertical-align: inherit;
-  box-sizing: border-box;
-  background: transparent;
-}
-
-.xfaLayer a {
-  color: blue;
-}
-
-.xfaRich li {
-  margin-left: 3em;
-}
-
-.xfaFont {
-  color: black;
-  font-weight: normal;
-  font-kerning: none;
-  font-size: 10px;
-  font-style: normal;
-  letter-spacing: 0;
-  text-decoration: none;
-  vertical-align: 0;
-}
-
-.xfaDraw {
-  z-index: 100;
-}
-
-.xfaExclgroup {
-  z-index: 200;
-}
-
-.xfaField {
-  z-index: 300;
-}
-
-.xfaRich {
-  z-index: 300;
-  line-height: 1.2;
-}
-
-.xfaSubform {
-  z-index: 200;
-}
-
-.xfaLabel {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-.xfaCaption {
-  flex: 1 1 auto;
-}
-
-.xfaBorderDiv {
-  background: transparent;
-  position: absolute;
-  pointer-events: none;
-}
-
-.xfaWrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-}
-
-.xfaContentArea {
-  overflow: hidden;
-}
-
-.xfaTextfield,
-.xfaSelect {
-  background-color: rgba(0, 54, 255, 0.13);
-}
-
-.xfaTextfield:focus,
-.xfaSelect:focus {
-  background-color: transparent;
-}
-
-.xfaTextfield,
-.xfaSelect {
-  width: 100%;
-  height: 100%;
-  flex: 100 1 0;
-  border: none;
-  resize: none;
-}
-
-.xfaLabel > input[type="radio"] {
-  /* Use this trick to make the checkbox invisible but
-       but still focusable. */
-  position: absolute;
-  left: -99999px;
-}
-
-.xfaLabel > input[type="radio"]:focus + .xfaCheckboxMark {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-}
-
-.xfaCheckboxMark {
-  cursor: pointer;
-  flex: 0 0 auto;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #8f8f9d;
-  font-size: 10px;
-  line-height: 10px;
-  width: 10px;
-  height: 10px;
-  text-align: center;
-  vertical-align: middle;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.xfaCheckbox:checked + .xfaCheckboxMark::after {
-  content: attr(mark);
-}
-
-.xfaButton {
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-  border: none;
-  text-align: center;
-}
-
-.xfaButton:hover {
-  background: Highlight;
-}
-
-.xfaRich {
-  white-space: pre-wrap;
-}
-
-.xfaImage {
-  width: 100%;
-  height: 100%;
-}
-
-.xfaRich {
-  width: 100%;
-  height: auto;
-}
-
-.xfaPosition {
-  display: block;
-}
-
-.xfaLrTb,
-.xfaRlTb,
-.xfaTb {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-
-.xfaLr,
-.xfaRl,
-.xfaTb > div {
-  flex: 1 1 auto;
-}
-
-.xfaTb > div {
-  justify-content: left;
-}
-
-.xfaLr > div {
-  display: inline;
-  float: left;
-}
-
-.xfaRl > div {
-  display: inline;
-  float: right;
-}
-
-.xfaPosition {
-  position: relative;
-}
-
-.xfaArea {
-  position: relative;
-}
-
-.xfaValignMiddle {
-  display: flex;
-  align-items: center;
-}
-
-.xfaLrTb > div {
-  display: inline;
-  float: left;
-}
-
-.xfaRlTb > div {
-  display: inline;
-  float: right;
-}
-
-.xfaTable {
-  display: flex;
-  flex-direction: column;
-}
-
-.xfaTable .xfaRow {
-  display: flex;
-  flex-direction: row;
-  flex: 1 1 auto;
-}
-
-.xfaTable .xfaRow > div {
-  flex: 1 1 auto;
-}
-
-.xfaTable .xfaRlRow {
-  display: flex;
-  flex-direction: row-reverse;
-  flex: 1;
-}
-
-.xfaTable .xfaRlRow > div {
-  flex: 1;
-}
-
-:root {
-  --pdfViewer-padding-bottom: none;
-  --page-margin: 1px auto -8px;
-  --page-border: 9px solid transparent;
-  --spreadHorizontalWrapped-margin-LR: -3.5px;
-}
-
-@media screen and (forced-colors: active) {
-  :root {
-    --pdfViewer-padding-bottom: 9px;
-    --page-margin: 9px auto 0;
-    --page-border: none;
-    --spreadHorizontalWrapped-margin-LR: 4.5px;
-  }
-}
-
-.pdfViewer {
-  padding-bottom: var(--pdfViewer-padding-bottom);
 }
 
 .pdfViewer .canvasWrapper {
@@ -558,18 +273,17 @@
   direction: ltr;
   width: 816px;
   height: 1056px;
-  margin: var(--page-margin);
+  margin: 1px auto -8px auto;
   position: relative;
   overflow: visible;
-  border: var(--page-border);
+  border: 9px solid transparent;
   background-clip: content-box;
-  -o-border-image: url(images/shadow.png) 9 9 repeat;
-     border-image: url(images/shadow.png) 9 9 repeat;
-  background-color: rgba(255, 255, 255, 1);
+  border-image: url(images/shadow.png) 9 9 repeat;
+  background-color: white;
 }
 
 .pdfViewer.removePageBorders .page {
-  margin: 0 auto 10px;
+  margin: 0px auto 10px auto;
   border: none;
 }
 
@@ -580,49 +294,6 @@
 .pdfViewer.singlePageView .page {
   margin: 0;
   border: none;
-}
-
-.pdfViewer.scrollHorizontal,
-.pdfViewer.scrollWrapped,
-.spread {
-  margin-left: 3.5px;
-  margin-right: 3.5px;
-  text-align: center;
-}
-
-.pdfViewer.scrollHorizontal,
-.spread {
-  white-space: nowrap;
-}
-
-.pdfViewer.removePageBorders,
-.pdfViewer.scrollHorizontal .spread,
-.pdfViewer.scrollWrapped .spread {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.spread .page,
-.pdfViewer.scrollHorizontal .page,
-.pdfViewer.scrollWrapped .page,
-.pdfViewer.scrollHorizontal .spread,
-.pdfViewer.scrollWrapped .spread {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.spread .page,
-.pdfViewer.scrollHorizontal .page,
-.pdfViewer.scrollWrapped .page {
-  margin-left: var(--spreadHorizontalWrapped-margin-LR);
-  margin-right: var(--spreadHorizontalWrapped-margin-LR);
-}
-
-.pdfViewer.removePageBorders .spread .page,
-.pdfViewer.removePageBorders.scrollHorizontal .page,
-.pdfViewer.removePageBorders.scrollWrapped .page {
-  margin-left: 5px;
-  margin-right: 5px;
 }
 
 .pdfViewer .page canvas {
@@ -641,27 +312,21 @@
   top: 0;
   right: 0;
   bottom: 0;
-  background: url("images/loading-icon.gif") center no-repeat;
-}
-
-.pdfPresentationMode .pdfViewer {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.pdfPresentationMode .pdfViewer .page,
-.pdfPresentationMode .pdfViewer .spread {
-  display: block;
-}
-
-.pdfPresentationMode .pdfViewer .page,
-.pdfPresentationMode .pdfViewer.removePageBorders .page {
-  margin-left: auto;
-  margin-right: auto;
+  background: url('images/loading-icon.gif') center no-repeat;
 }
 
 .pdfPresentationMode:-webkit-full-screen .pdfViewer .page {
   margin-bottom: 100%;
+  border: 0;
+}
+
+.pdfPresentationMode:-moz-full-screen .pdfViewer .page {
+  margin-bottom: 100%;
+  border: 0;
+}
+
+.pdfPresentationMode:-ms-fullscreen .pdfViewer .page {
+  margin-bottom: 100% !important;
   border: 0;
 }
 

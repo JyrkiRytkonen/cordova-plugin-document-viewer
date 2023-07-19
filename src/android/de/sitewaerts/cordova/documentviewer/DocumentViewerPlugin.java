@@ -31,18 +31,21 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import androidx.core.content.FileProvider;
 import android.util.Log;
 import org.apache.cordova.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 import java.io.*;
+
 
 //15: Android 4.0.3
 //19: Android 4.4.2
 //25: Android 7
-@TargetApi(29)
+@TargetApi(25)
 public final class DocumentViewerPlugin
         extends CordovaPlugin
 {
